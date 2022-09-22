@@ -4,15 +4,18 @@ namespace Projet2Chess
 {
     class Program
     {
+        
         static PartieEchecs laPartie;
 
         static string nomJoueur1, nomJoueur2;
 
         static void Main(string[] args)
         {
+            //Encodage pour les caractères spéciaux
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
             
+            //Affiche le plateaux et fais jouer les joueurs
             while(true)
             {
                 laPartie.AfficherPlateau();
@@ -22,25 +25,42 @@ namespace Projet2Chess
             }
         }
 
+        /// <summary>
+        /// Fait jouer le joueur 1
+        /// </summary>
         private static void CoupJoueur1()
         {
             CoupJoueur(ConsoleColor.White, nomJoueur1);
         }
 
+        /// <summary>
+        /// Fait jouer le joueur 2
+        /// </summary>
         private static void CoupJoueur2()
         {
             CoupJoueur(ConsoleColor.Black, nomJoueur2);
         }
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="couleurJoueur"></param>
+        /// <param name="nomJoueur"></param>
         private static void CoupJoueur(ConsoleColor couleurJoueur, string nomJoueur)
         {
+            //
             Console.WriteLine("C'est le tour de " + nomJoueur + ", choisissez une pièce à bouger.");
+
+           
             Coordonnee coordonneeDestination;
 
+            //Vérifie si la pièce ou il veut jouer est disponible et si son déplacement est possible
             do
             {
+                
                 bool sourceValide = false;
 
+                
                 while (!sourceValide)
                 {
                     Coordonnee coordonneeABouger = DemanderCoordonnees("Entrez la coordonnée de la pièce que vous voulez bouger : ");
@@ -48,6 +68,7 @@ namespace Projet2Chess
                     sourceValide = laPartie.SelectionnerPieceEtAfficher(coordonneeABouger, couleurJoueur);
                 }
 
+                //demande au utilisateur de rentrer les coordonné ou il veut envoyer son pion 
                 coordonneeDestination = DemanderCoordonnees("Entrez la coordonnée de destination : ");
 
             } while (!laPartie.EntrerDestinationEtConfirmer(coordonneeDestination, couleurJoueur));
