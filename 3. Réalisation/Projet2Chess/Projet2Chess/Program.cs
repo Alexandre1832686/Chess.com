@@ -13,6 +13,7 @@ namespace Projet2Chess
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
             
+            
             while(true)
             {
                 laPartie.AfficherPlateau();
@@ -63,13 +64,17 @@ namespace Projet2Chess
             throw new NotImplementedException();
         }
 
+        //lance la partie en créant un objet parti et en nommant les deux joueurs
         private static void InitialiserPartie()
         {
+            //instanciation de l'objet VraiePartieEchec
             laPartie = new VraiePartieEchec();
 
+            //lecture du nom du joueur 1
             Console.WriteLine("Quel est le nom du joueur 1?");
             nomJoueur1 = Console.ReadLine();
 
+            //Lecture du nom de joueur 2
             Console.WriteLine("Quel est le nom du joueur 2?");
             nomJoueur2 = Console.ReadLine();
         }
