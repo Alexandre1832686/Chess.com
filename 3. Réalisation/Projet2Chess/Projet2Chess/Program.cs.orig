@@ -15,7 +15,11 @@ namespace Projet2Chess
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
             
+<<<<<<< HEAD
+            
+=======
             //Affiche le plateaux et fais jouer les joueurs
+>>>>>>> dace8f1afb10e6e70830bf17f49559ec933c32e4
             while(true)
             {
                 laPartie.AfficherPlateau();
