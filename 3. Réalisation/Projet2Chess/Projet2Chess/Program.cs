@@ -59,9 +59,7 @@ namespace Projet2Chess
             //Vérifie si la pièce ou il veut jouer est disponible et si son déplacement est possible
             do
             {
-                
                 bool sourceValide = false;
-
                 
                 while (!sourceValide)
                 {
@@ -76,11 +74,25 @@ namespace Projet2Chess
             } while (!laPartie.EntrerDestinationEtConfirmer(coordonneeDestination, couleurJoueur));
         }
 
+        /*
+         * 
+         * on recoit une string qui est le message d'affichage
+         * on l'affiche et prend une lecture de ligne console
+         * on prend cette lecture et prend le premier et deuxieme charactère de celle-ci
+         * on prend le premier charactère et on transform le charactère en chiffre ex: 1=A 2=B etc...
+         * ensuite on créer une coordoné on attribue la valeur x et y a la coordonée et on la renvoie.
+         * 
+         */
         private static Coordonnee DemanderCoordonnees(string messageAAfficher)
         {
             throw new NotImplementedException();
         }
 
+        /*
+         *Recoit un string veux prendre le premier charactère et transformer le charactère en chiffre ex: 1=A 2=B etc...
+         *ensuite on créer une coordoné on attribue le premier et deuxieme charactère a la coordonée et on la renvoie.
+         *
+         */
         private static Coordonnee DecortiquerCoordonnee(string coordonneeADecortiquer)
         {
             throw new NotImplementedException();
