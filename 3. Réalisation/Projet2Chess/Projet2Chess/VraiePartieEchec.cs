@@ -6,8 +6,10 @@ namespace Projet2Chess
     {
         private object lesPieces;
 
+        //places les pieces dans le tableu lesPieces
         public VraiePartieEchec()
         {
+            //pieces autre que les pion (blanc)
             base.lesPieces = new Piece[8, 8];
             base.lesPieces[0, 0] = new VraieTour(ConsoleColor.White);
             base.lesPieces[1, 0] = new VraiCavalier(ConsoleColor.White);
@@ -18,6 +20,7 @@ namespace Projet2Chess
             base.lesPieces[5, 0] = new VraiFou(ConsoleColor.White);
             base.lesPieces[4, 0] = new VraiRoi(ConsoleColor.White);
 
+            //les pions avec leurs couleus
             for (int i = 0; i < 8; i++)
             {
                 base.lesPieces[i, 1] = new VraiPion(ConsoleColor.White);
@@ -28,6 +31,7 @@ namespace Projet2Chess
                 base.lesPieces[i, 5] = new PieceVide();
             }
 
+            //pieces autre que les pion (noir)
             base.lesPieces[0, 7] = new VraieTour(ConsoleColor.Black);
             base.lesPieces[1, 7] = new VraiCavalier(ConsoleColor.Black);
             base.lesPieces[2, 7] = new VraiFou(ConsoleColor.Black);
