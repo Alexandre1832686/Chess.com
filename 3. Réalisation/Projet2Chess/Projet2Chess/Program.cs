@@ -11,6 +11,8 @@ namespace Projet2Chess
 
         static void Main(string[] args)
         {
+            
+
             //Encodage pour les caractères spéciaux
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
