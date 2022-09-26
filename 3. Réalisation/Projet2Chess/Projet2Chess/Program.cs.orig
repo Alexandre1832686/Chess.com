@@ -15,11 +15,7 @@ namespace Projet2Chess
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
             
-<<<<<<< HEAD
-            
-=======
             //Affiche le plateaux et fais jouer les joueurs
->>>>>>> dace8f1afb10e6e70830bf17f49559ec933c32e4
             while(true)
             {
                 laPartie.AfficherPlateau();
@@ -61,9 +57,7 @@ namespace Projet2Chess
             //Vérifie si la pièce ou il veut jouer est disponible et si son déplacement est possible
             do
             {
-                
                 bool sourceValide = false;
-
                 
                 while (!sourceValide)
                 {
@@ -78,11 +72,89 @@ namespace Projet2Chess
             } while (!laPartie.EntrerDestinationEtConfirmer(coordonneeDestination, couleurJoueur));
         }
 
+<<<<<<< HEAD
+        
+        
+=======
+        /*
+         * 
+         * on recoit une string qui est le message d'affichage
+         * on l'affiche et prend une lecture de ligne console
+         * on prend cette lecture et prend le premier et deuxieme charactère de celle-ci
+         * on prend le premier charactère et on transform le charactère en chiffre ex: 1=A 2=B etc...
+         * ensuite on créer une coordoné on attribue la valeur x et y a la coordonée et on la renvoie.
+         * 
+         */
+>>>>>>> 41dd71fcb2a620fef675733b9389e705c306e7d3
         private static Coordonnee DemanderCoordonnees(string messageAAfficher)
         {
-            throw new NotImplementedException();
+            int x = 0;
+
+            int y = 0;
+
+            do
+            {
+              
+                Console.WriteLine(messageAAfficher);
+
+                string reponse = Console.ReadLine().ToUpper();
+
+                string xString = reponse.Substring(0, 1);
+
+                string yString = reponse.Substring(1, 1);
+
+                y = Convert.ToInt32(yString);
+
+                switch (xString) 
+                {
+                    case "a" :
+                        x = 0;
+                        break;
+
+                    case "b":
+                        x = 1;
+                        break;
+
+                    case "c":
+                        x = 2;
+                        break;
+
+                    case "d":
+                        x = 3;
+                        break;
+
+                    case "e":
+                        x = 4;
+                        break;
+
+                    case "f":
+                        x = 5;
+                        break;
+
+                    case "g":
+                        x = 6;
+                        break;
+
+                    case "h":
+                        x = 7;
+                        break;
+
+                        default:
+                        x = 8;
+                        break;
+                }
+            
+            }while ((x > 7 || x < 0) && (y > 7 || y < 0));
+
+            return new Coordonnee(x, y);
+
         }
 
+        /*
+         *Recoit un string veux prendre le premier charactère et transformer le charactère en chiffre ex: 1=A 2=B etc...
+         *ensuite on créer une coordoné on attribue le premier et deuxieme charactère a la coordonée et on la renvoie.
+         *
+         */
         private static Coordonnee DecortiquerCoordonnee(string coordonneeADecortiquer)
         {
             throw new NotImplementedException();
