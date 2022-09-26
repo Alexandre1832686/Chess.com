@@ -7,6 +7,7 @@ namespace Projet2Chess
     {
         public VraiCavalier(ConsoleColor laCouleur) : base(laCouleur)
         { }
+        
 
         public override List<Coordonnee> DeterminerPositionsValides(Piece[,] lePlateau, Coordonnee maPosition)
         {
