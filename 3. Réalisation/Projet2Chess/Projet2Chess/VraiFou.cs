@@ -52,7 +52,9 @@ namespace Projet2Chess
 
                 while(verif==true)
                 {
-                    int test = maPosition.Y + dirY * compteur;
+
+                    ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
+                    
                     if (maPosition.X + dirX*compteur > 7 || maPosition.X + dirX * compteur < 0)
                     {
                         verif = false;
@@ -63,28 +65,20 @@ namespace Projet2Chess
                         verif = false;
                     }
 
-                    
-
-                    
-                    if(verif == true)   
+                    if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
                     {
-                        if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == ConsoleColor.Black)
-                        {
-                            if (lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.Black)
-                                verif = false;
-
-                        }
-                        else if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == ConsoleColor.White)
-                        {
-                            if (lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.White)
-                                verif = false;
-                        }
+                        verif = false;
                     }
                    
+                    if(maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.White ||
+                       maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.Black)
+                    {
+                        verif = false;
+                    }
 
                     if(verif==true)
                     {
-                        Coordonnee maCoo = new Coordonnee(maPosition.X + dirX*compteur, maPosition.Y + dirY * compteur);
+                        Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
                         result.Add(maCoo);
                     }
 
