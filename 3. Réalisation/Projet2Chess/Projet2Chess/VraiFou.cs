@@ -65,10 +65,6 @@ namespace Projet2Chess
                         verif = false;
                     }
 
-                    
-                    
-                    
-
                     if(verif==true)
                     {
                         if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
@@ -83,16 +79,11 @@ namespace Projet2Chess
 
                         }
 
-                        /****************************
-                         * 
-                         * 
-                         * IMPORTANT DE CHECKER CAAAAAA!!!!1
-                         * 
-                         * ************************/
-
-
-                        Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
-                        result.Add(maCoo);
+                        if(verif==true)
+                        {
+                            Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
+                            result.Add(maCoo);
+                        }
                     }
 
                     compteur++;
