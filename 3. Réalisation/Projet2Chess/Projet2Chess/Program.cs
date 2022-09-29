@@ -6,13 +6,14 @@ namespace Projet2Chess
     {
         
         static PartieEchecs laPartie;
+       
 
         static string nomJoueur1, nomJoueur2;
 
         static void Main(string[] args)
         {
-            
 
+           
             //Encodage pour les caractères spéciaux
             Console.OutputEncoding = System.Text.Encoding.Unicode;
             InitialiserPartie();
@@ -53,8 +54,9 @@ namespace Projet2Chess
             //
             Console.WriteLine("C'est le tour de " + nomJoueur + ", choisissez une pièce à bouger.");
 
-           
+
             Coordonnee coordonneeDestination;
+            
 
             //Vérifie si la pièce ou il veut jouer est disponible et si son déplacement est possible
             do
@@ -172,5 +174,6 @@ namespace Projet2Chess
             Console.WriteLine("Quel est le nom du joueur 2?");
             nomJoueur2 = Console.ReadLine();
         }
+        
     }
 }
