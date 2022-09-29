@@ -92,61 +92,13 @@ namespace Projet2Chess
 
             int y = 0;
 
-            do
-            {
-              
-                Console.WriteLine(messageAAfficher);
+            Console.WriteLine(messageAAfficher);
 
-                string reponse = Console.ReadLine().ToUpper();
+            string reponse = Console.ReadLine().ToLower();
 
-                string xString = reponse.Substring(0, 1);
+            //verification
 
-                string yString = reponse.Substring(1, 1);
-
-                y = Convert.ToInt32(yString);
-
-                switch (xString) 
-                {
-                    case "a" :
-                        x = 0;
-                        break;
-
-                    case "b":
-                        x = 1;
-                        break;
-
-                    case "c":
-                        x = 2;
-                        break;
-
-                    case "d":
-                        x = 3;
-                        break;
-
-                    case "e":
-                        x = 4;
-                        break;
-
-                    case "f":
-                        x = 5;
-                        break;
-
-                    case "g":
-                        x = 6;
-                        break;
-
-                    case "h":
-                        x = 7;
-                        break;
-
-                        default:
-                        x = 8;
-                        break;
-                }
-            
-            }while ((x > 7 || x < 0) && (y > 7 || y < 0));
-
-            return new Coordonnee(x, y);
+            return DecortiquerCoordonnee(reponse);
 
         }
 
@@ -157,7 +109,54 @@ namespace Projet2Chess
          */
         private static Coordonnee DecortiquerCoordonnee(string coordonneeADecortiquer)
         {
-            throw new NotImplementedException();
+            int x = 0;
+            int y = 0;
+
+            string coordonneeADecortiquerX = coordonneeADecortiquer.Substring(0, 1);
+
+            string coordonneeADecortiquerY = coordonneeADecortiquer.Substring(1, 1);
+
+            y = Convert.ToInt32(coordonneeADecortiquerY);
+                
+            switch (coordonneeADecortiquerX)
+            {
+                case "a":
+                    x = 0;
+                    break;
+
+                case "b":
+                    x = 1;
+                    break;
+
+                case "c":
+                    x = 2;
+                    break;
+
+                case "d":
+                    x = 3;
+                    break;
+
+                case "e":
+                    x = 4;
+                    break;
+
+                case "f":
+                    x = 5;
+                    break;
+
+                case "g":
+                    x = 6;
+                    break;
+
+                case "h":
+                    x = 7;
+                    break;
+
+                default:
+                    break;
+            }
+
+        return new Coordonnee(x, y);
         }
 
         //lance la partie en créant un objet parti et en nommant les deux joueurs
