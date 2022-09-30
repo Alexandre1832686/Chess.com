@@ -80,8 +80,8 @@ namespace Projet2Chess
                         }
 
                         //Vérifi s'il peux manger un pion
-                        if (maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.White ||
-                           maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.Black)
+                        if (maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.White ||
+                           maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.Black)
                         {
                             verif = false;
                         }
@@ -95,7 +95,9 @@ namespace Projet2Chess
 
                         }
                     }
+                    compteur++;
 
+                    compteur++;
 
                 }
 
