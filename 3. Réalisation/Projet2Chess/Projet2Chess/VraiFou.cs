@@ -65,21 +65,25 @@ namespace Projet2Chess
                         verif = false;
                     }
 
-                    if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
-                    {
-                        verif = false;
-                    }
-                   
-                    if(maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.White ||
-                       maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.Black)
-                    {
-                        verif = false;
-                    }
-
                     if(verif==true)
                     {
-                        Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
-                        result.Add(maCoo);
+                        if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
+                        {
+                            verif = false;
+                        }
+
+                        if (maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.White ||
+                           maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur - 1)].couleurPiece == ConsoleColor.Black)
+                        {
+                            verif = false;
+
+                        }
+
+                        if(verif==true)
+                        {
+                            Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
+                            result.Add(maCoo);
+                        }
                     }
 
                     compteur++;

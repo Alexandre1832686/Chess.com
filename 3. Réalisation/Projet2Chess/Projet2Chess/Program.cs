@@ -87,19 +87,14 @@ namespace Projet2Chess
          * 
          */
         private static Coordonnee DemanderCoordonnees(string messageAAfficher)
-        {
-            int x = 0;
-
-            int y = 0;
-
+        { 
             Console.WriteLine(messageAAfficher);
 
-            string reponse = Console.ReadLine().ToLower();
+            string reponse = Console.ReadLine();
 
             //verification
 
             return DecortiquerCoordonnee(reponse);
-
         }
 
         /*
@@ -109,54 +104,57 @@ namespace Projet2Chess
          */
         private static Coordonnee DecortiquerCoordonnee(string coordonneeADecortiquer)
         {
+
             int x = 0;
             int y = 0;
 
             string coordonneeADecortiquerX = coordonneeADecortiquer.Substring(0, 1);
 
             string coordonneeADecortiquerY = coordonneeADecortiquer.Substring(1, 1);
+            
 
             y = Convert.ToInt32(coordonneeADecortiquerY);
                 
             switch (coordonneeADecortiquerX)
             {
-                case "a":
+                case "A":
                     x = 0;
                     break;
 
-                case "b":
+                case "B":
                     x = 1;
                     break;
 
-                case "c":
+                case "C":
                     x = 2;
                     break;
 
-                case "d":
+                case "D":
                     x = 3;
                     break;
 
-                case "e":
+                case "E":
                     x = 4;
                     break;
 
-                case "f":
+                case "F":
                     x = 5;
                     break;
 
-                case "g":
+                case "G":
                     x = 6;
                     break;
 
-                case "h":
+                case "H":
                     x = 7;
                     break;
 
                 default:
                     break;
             }
+            
+            return new Coordonnee(x, y-1);
 
-        return new Coordonnee(x, y);
         }
 
         //lance la partie en créant un objet parti et en nommant les deux joueurs
