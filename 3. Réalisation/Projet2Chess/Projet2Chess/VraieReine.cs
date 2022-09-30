@@ -20,7 +20,7 @@ namespace Projet2Chess
 
         public override string ToString()
         {
-            return " \u2655  ";
+            return " \u2655 ";
         }
     }
 }
