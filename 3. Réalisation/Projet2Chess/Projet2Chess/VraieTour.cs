@@ -97,6 +97,7 @@ namespace Projet2Chess
                     }
                     compteur++;
 
+                    compteur++;
 
                 }
 
