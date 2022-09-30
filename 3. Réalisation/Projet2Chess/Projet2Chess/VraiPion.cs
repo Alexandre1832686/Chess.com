@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,38 @@ namespace Projet2Chess
                 result.Add(maCoord);
             }
             //Si la postion +1 ou -1 est plus grand ou plus petit que les limitte du tableau 
+          
+            if((maPosition.Y+1<8 && maPosition.Y-1>0) && (maPosition.X + 1 < 8 && maPosition.X - 1 > 0) && (lePlateau[maPosition.X,maPosition.Y+1].couleurPiece != ConsoleColor.White  || lePlateau[maPosition.X,maPosition.Y+1].couleurPiece != ConsoleColor.Black))
+            {
+                maCoord = new Coordonnee(maPosition.X, maPosition.Y+1);
+                result.Add(maCoord);
+                //vérification manger blanc
+                if (lePlateau[maPosition.X, maPosition.Y].couleurPiece== ConsoleColor.White && lePlateau[maPosition.X+1, maPosition.Y+1].couleurPiece == ConsoleColor.Black)
+                {
+                    maCoord = new Coordonnee(maPosition.X+1,maPosition.Y+1 );
+                    result.Add(maCoord);
+                }
+                else if (lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.White && lePlateau[maPosition.X - 1, maPosition.Y + 1].couleurPiece == ConsoleColor.Black)
+
+                {
+                    maCoord = new Coordonnee(maPosition.X - 1, maPosition.Y + 1);
+                    result.Add(maCoord);
+                }
+                //noir
+                if (lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.Black && lePlateau[maPosition.X + 1, maPosition.Y - 1].couleurPiece == ConsoleColor.White)
+                {
+                    maCoord = new Coordonnee(maPosition.X + 1, maPosition.Y - 1);
+                    result.Add(maCoord);
+                }
+                else if (lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.White && lePlateau[maPosition.X - 1, maPosition.Y - 1].couleurPiece == ConsoleColor.White)
+
+                {
+                    maCoord = new Coordonnee(maPosition.X - 1, maPosition.Y - 1);
+                    result.Add(maCoord);
+                }
+            }
+            //MAnger un pions si la pièce a la postion x+1 et y+1
+            
 
             //throw new NotImplementedException();
             //Vous pouvez utiliser la ligne qui suit pour vérifier le comportement attendu
