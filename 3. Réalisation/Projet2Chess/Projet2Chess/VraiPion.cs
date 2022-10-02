@@ -71,10 +71,9 @@ namespace Projet2Chess
                 //MAnger un pions si la pièce a la postion x-1 et y-1
 
                 if (maPosition.X != 0 && lePlateau[maPosition.X, maPosition.Y].couleurPiece == ConsoleColor.Black  && lePlateau[maPosition.X - 1, maPosition.Y - 1].couleurPiece == ConsoleColor.White)
-
                 {
-                        maCoord = new Coordonnee(maPosition.X - 1, maPosition.Y - 1);
-                        result.Add(maCoord);
+                   maCoord = new Coordonnee(maPosition.X - 1, maPosition.Y - 1);
+                   result.Add(maCoord);
                 }
                 
                
@@ -86,12 +85,12 @@ namespace Projet2Chess
             // return base.DeterminerPositionsValides(lePlateau, maPosition);
             return result;
         }
-        //si on pouvait call la fonction voici comment on tranformerait le pions en reine
+        //si on pouvait call la fonction voici comment on tranformerait le pions en reine ; si la position d'un pions est sur une limite y du tableau alors tranformer la pièce a sa positions en reine
         public void ChangerPiondEnReine(Coordonnee maPosition, Piece[,] lePlateau)
         {
             ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
 
-            //blanc
+            //blanc 
             if(maPosition.Y==7 && maCouleur== ConsoleColor.White )
             {
                 VraieReine nouvelleReine = new VraieReine(ConsoleColor.White);

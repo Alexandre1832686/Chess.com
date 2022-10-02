@@ -23,70 +23,73 @@ namespace Projet2Chess
          ***********************************************************************************************************/
         public override List<Coordonnee> DeterminerPositionsValides(Piece[,] lePlateau, Coordonnee maPosition)
         {
+            {//création de la liste pour les positions disponibles
+                List<Coordonnee> result = new List<Coordonnee>();
+                //instanciation des direction
+                int[,] montab = new int[8, 2];
+                montab[0, 0] = 1;
+                montab[0, 1] = 2;
 
-            List<Coordonnee> result = new List<Coordonnee>();
+                montab[1, 0] = -1;
+                montab[1, 1] = 2;
 
-            int[,] montab = new int[8, 2];
-            montab[0, 0] = 1;
-            montab[0, 1] = 2;
+                montab[2, 0] = 2;
+                montab[2, 1] = 1;
 
-            montab[1, 0] = -1;
-            montab[1, 1] = 2;
+                montab[3, 0] = 2;
+                montab[3, 1] = -1;
 
-            montab[2, 0] = 2;
-            montab[2, 1] = 1;
+                montab[4, 0] = 1;
+                montab[4, 1] = -2;
 
-            montab[3, 0] = 2;
-            montab[3, 1] = -1;
+                montab[5, 0] = -1;
+                montab[5, 1] = -2;
 
-            montab[4, 0] = 1;
-            montab[4, 1] = -2;
+                montab[6, 0] = -2;
+                montab[6, 1] = 1;
 
-            montab[5, 0] = -1;
-            montab[5, 1] = -2;
+                montab[7, 0] = -2;
+                montab[7, 1] = -1;
 
-            montab[6, 0] = -2;
-            montab[6, 1] = 1;
-
-            montab[7, 0] = -2;
-            montab[7, 1] = -1;
-
-            for (int i = 0; i < 8; i++)
-            {
-                int dirX = montab[i, 0];
-                int dirY = montab[i, 1];
-
-                bool verif = true;
-                int compteur = 1;
-
-                ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
-
-                if (maPosition.X + dirX * compteur > 7 || maPosition.X + dirX * compteur < 0)
+                //Boucle sur les 8 directions
+                for (int i = 0; i < 8; i++)
                 {
-                    verif = false;
-                }
+                    int dirX = montab[i, 0];
+                    int dirY = montab[i, 1];
 
-                if (maPosition.Y + dirY * compteur > 7 || maPosition.Y + dirY * compteur < 0)
-                {
-                    verif = false;
-                }
-
-                if (verif == true)
-                {
-                    if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece != maCouleur)
+                    bool verif = true;
+                    int compteur = 1;
+                    //récupère la couleur du pion
+                    ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
+                    //verification pour ne pas que le pions ne dépasse pas les limites du tableau
+                    if (maPosition.X + dirX * compteur > 7 || maPosition.X + dirX * compteur < 0)
                     {
-                        if (verif == true)
+                        verif = false;
+                    }
+
+                    if (maPosition.Y + dirY * compteur > 7 || maPosition.Y + dirY * compteur < 0)
+                    {
+                        verif = false;
+                    }
+
+                    if (verif == true)
+                    {
+                        //vérifi si le pion tombe sur un pion de son équipe
+                        if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece != maCouleur)
                         {
-                            Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
-                            result.Add(maCoo);
+                            //ajoute la coordoné dans le tableau si elle est valide
+                            if (verif == true)
+                            {
+                                Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
+                                result.Add(maCoo);
+                            }
                         }
                     }
                 }
+
+                return result;
+                //return base.DeterminerPositionsValides(lePlateau, maPosition);
             }
-
-            return result;
-            //return base.DeterminerPositionsValides(lePlateau, maPosition);
-
 
 
         }

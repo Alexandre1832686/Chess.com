@@ -41,7 +41,7 @@ namespace Projet2Chess
             direction[7, 0] = -1;
             direction[7, 1] = 1;
 
-            //Boucle sur les 4 directions
+            //Boucle sur les 8 directions
             for (int i = 0; i < 8; i++)
             {
                 int dirX = direction[i, 0];
