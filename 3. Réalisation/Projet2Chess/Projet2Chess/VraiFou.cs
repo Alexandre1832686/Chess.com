@@ -26,9 +26,10 @@ namespace Projet2Chess
          ***********************************************************************************************************/
         public override List<Coordonnee> DeterminerPositionsValides(Piece[,] lePlateau, Coordonnee maPosition)
         {
-
+            //création de la liste pour les positions disponibles
             List<Coordonnee> result = new List<Coordonnee>();
 
+            //instanciation des direction
             int[,] montab = new int[4, 2];
             montab[0, 0] = 1;
             montab[0, 1] = 1;
@@ -42,6 +43,10 @@ namespace Projet2Chess
             montab[3, 0] = -1;
             montab[3, 1] = -1;
 
+            //récupère la couleur du pion
+            ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
+
+            //Boucle sur les 4 directions
             for (int  i=0;i<4;i++)
             {
                 int dirX = montab[i, 0];
@@ -52,9 +57,7 @@ namespace Projet2Chess
 
                 while(verif==true)
                 {
-
-                    ConsoleColor maCouleur = lePlateau[maPosition.X, maPosition.Y].couleurPiece;
-                    
+                    //verification pour ne pas que le pions ne dépasse pas les limites du tableau
                     if (maPosition.X + dirX*compteur > 7 || maPosition.X + dirX * compteur < 0)
                     {
                         verif = false;
@@ -62,24 +65,28 @@ namespace Projet2Chess
 
                     if(maPosition.Y + dirY * compteur > 7 || maPosition.Y + dirY * compteur < 0)
                     {
+
                         verif = false;
                     }
 
                     if(verif==true)
                     {
+                        //vérifi si le pion tombe sur un pion de son équipe
                         if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
                         {
                             verif = false;
                         }
-
+                        
+                        //vérifi si le pion tombe sur un pion de son équipe
                         if (maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.White ||
                            maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.Black)
                         {
                             verif = false;
 
                         }
-                        //A VERIFIER!!! PEUT TU MANGER?
-                        if(verif==true)
+
+                        //Vérifi s'il peux manger un pion
+                        if (verif==true)
                         {
                             Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
                             result.Add(maCoo);

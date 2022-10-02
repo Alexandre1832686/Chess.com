@@ -65,12 +65,14 @@ namespace Projet2Chess
                 }
             }
             //MAnger un pions si la pièce a la postion x+1 et y+1
-            
+
 
             //throw new NotImplementedException();
             //Vous pouvez utiliser la ligne qui suit pour vérifier le comportement attendu
             // return base.DeterminerPositionsValides(lePlateau, maPosition);
-            return result;
+            return base.DeterminerPositionsValides(lePlateau, maPosition);
+
+            //return result;
         }
 
     }
