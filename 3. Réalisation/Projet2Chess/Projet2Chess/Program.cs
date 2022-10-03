@@ -7,7 +7,7 @@ namespace Projet2Chess
         
         static PartieEchecs laPartie;
        
-
+        
         static string nomJoueur1, nomJoueur2;
 
         static void Main(string[] args)
@@ -21,6 +21,7 @@ namespace Projet2Chess
             //Affiche le plateaux et fais jouer les joueurs
             while(true)
             {
+                
                 laPartie.AfficherPlateau();
                 CoupJoueur1();
                 laPartie.AfficherPlateau();
