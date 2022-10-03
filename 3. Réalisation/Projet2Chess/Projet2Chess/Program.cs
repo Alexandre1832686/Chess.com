@@ -90,12 +90,36 @@ namespace Projet2Chess
          * 
          */
         private static Coordonnee DemanderCoordonnees(string messageAAfficher)
-        { 
-            Console.WriteLine(messageAAfficher);
+        {
+            bool verif = false;
+            string reponse;
 
-            string reponse = Console.ReadLine();
+            do
+            {
+                Console.WriteLine(messageAAfficher);
 
-            reponse = reponse.Substring(0).ToUpper() + reponse.Substring(1);
+                reponse = Console.ReadLine();
+
+                reponse = reponse.Substring(0,1).ToUpper() + reponse.Substring(1,1);
+
+                verif = false;
+
+                if (reponse.Substring(0,1) == "A" || reponse.Substring(0, 1) == "B" || reponse.Substring(0, 1) == "C" || reponse.Substring(0, 1) == "D" || reponse.Substring(0, 1) == "E" || reponse.Substring(0, 1) == "F" || reponse.Substring(0, 1) == "G" || reponse.Substring(0, 1) == "H")
+                {
+                    verif = true;
+                }
+
+                if(int.TryParse(reponse.Substring(1,1), out int a))
+                {
+                    verif = true;
+                }
+                else
+                {
+                    verif = false;
+                }
+
+            } while (verif == false);
+
 
             return DecortiquerCoordonnee(reponse);
         }
