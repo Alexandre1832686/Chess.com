@@ -12,7 +12,8 @@ namespace Projet2Chess
         { }
 
         public override List<Coordonnee> DeterminerPositionsValides(Piece[,] lePlateau, Coordonnee maPosition)
-        {//création de la liste pour les positions disponibles
+        {
+            //création de la liste pour les positions disponibles
             List<Coordonnee> result = new List<Coordonnee>();
 
             //instanciation des direction
@@ -55,7 +56,6 @@ namespace Projet2Chess
 
                 while (verif == true)
                 {
-                    
                     //verification pour ne pas que le pions ne dépasse pas les limites du tableau
                     if (maPosition.X + dirX * compteur > 7 || maPosition.X + dirX * compteur < 0)
                     {
@@ -69,7 +69,6 @@ namespace Projet2Chess
 
                     if (verif == true)
                     {
-
                         //vérifi si le pion tombe sur un pion de son équipe
                         if (lePlateau[maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur].couleurPiece == maCouleur)
                         {
@@ -81,28 +80,22 @@ namespace Projet2Chess
                         {
                             Coordonnee maCoo = new Coordonnee(maPosition.X + dirX * compteur, maPosition.Y + dirY * compteur);
                             result.Add(maCoo);
-
                         }
 
                         //Vérifi s'il peux manger un pion
                         if (maCouleur == ConsoleColor.Black && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.White ||
                            maCouleur == ConsoleColor.White && lePlateau[maPosition.X + dirX * (compteur), maPosition.Y + dirY * (compteur)].couleurPiece == ConsoleColor.Black)
                         {
-                           
-
                             verif = false;
                         }
-
-
-                        
-
-                        
                     }
                     compteur++;
 
                 }
 
             }
+            //return base.DeterminerPositionsValides(lePlateau, maPosition);
+
             return result;
         }
 

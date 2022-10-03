@@ -55,6 +55,8 @@
     <Compile Include="VraieReine.cs" />
     <Compile Include="VraieTour.cs" />
     <Compile Include="VraiFou.cs" />
+    <Compile Include="VraiInvente1.cs" />
+    <Compile Include="vraiInvente2.cs" />
     <Compile Include="VraiPion.cs" />
     <Compile Include="VraiRoi.cs" />
   </ItemGroup>
